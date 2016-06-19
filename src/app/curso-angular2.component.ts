@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+// importar el modelo
+import { Pelicula } from './model/pelicula';
+ 
 @Component({
   moduleId: module.id,
   selector: 'curso-angular2-app',
@@ -9,19 +11,18 @@ import { Component } from '@angular/core';
 export class CursoAngular2AppComponent {
   title:string = "Titulo de la página";
 
-  pelicula:string;
-  anio:number;
-  activo:boolean;
+  // guardo en pelicula el modelo Pelicula
+  public pelicula:Pelicula;
 
   constructor(){
-    this.pelicula = "Batman vs Superman";
-    this.anio = 2016;
-    this.activo = true;
+    // creo un objeto de pelicula tomando la matriz del modelo
+    this.pelicula = new Pelicula(1, "Batman vs Superman", "Zack Snider", 2016);
+
     // lanzar una funcion
-    // this.holaMundo();
+    this.debug();
   }
 
-  holaMundo(){
+  debug(){
     console.log(this.pelicula);
   }
 
