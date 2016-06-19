@@ -14,9 +14,15 @@
   *ngIf="mostrarDatos === true">Ocultar Listado</button>
 
 
-
 <ul *ngIf="mostrarDatos === true">
-  <li>Pelicula: {{pelicula.pelicula}}</li>
+  <li>Pelicula: {{pelicula.title}}</li>
   <li>Año: {{pelicula.anio}}</li>
   <li>Director: {{pelicula.director}}</li>
 </ul>
+
+<p>
+  Cambiar titulo
+  <input type="text"
+    (keypress)="debug(true)"
+    [(ngModel)]="pelicula.title">
+</p>
