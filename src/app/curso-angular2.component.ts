@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['curso-angular2.component.css']
 })
 export class CursoAngular2AppComponent {
-  title = 'curso-angular2 works!';
+  title:string = 'curso-angular2 works!';
+  anio:number = 2016;
+  activo:boolean = true;
 }
