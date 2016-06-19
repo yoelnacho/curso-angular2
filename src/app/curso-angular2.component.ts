@@ -25,8 +25,14 @@ export class CursoAngular2AppComponent {
     this.debug();
   }
 
-  debug(){
-    console.log(this.pelicula);
+  debug(title = null){
+    // para ver en tiempor real como funciona del data-binding
+    if(title != null){
+      console.log(this.pelicula.title);
+    } else {
+      console.log(this.pelicula);
+    }
+    
   }
 
   onVisibility(){
