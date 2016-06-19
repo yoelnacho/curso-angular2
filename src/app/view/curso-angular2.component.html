@@ -2,7 +2,20 @@
   {{title}}
 </h1>
 
-<ul>
+
+
+<button type="button" 
+  class="btn btn-large btn-block btn-default"
+  (click)="onVisibility(true)"
+  *ngIf="mostrarDatos === false">Mostrar Listado</button>
+<button type="button" 
+  class="btn btn-large btn-block btn-default"
+  (click)="onVisibility(false)"
+  *ngIf="mostrarDatos === true">Ocultar Listado</button>
+
+
+
+<ul *ngIf="mostrarDatos === true">
   <li>Pelicula: {{pelicula.pelicula}}</li>
   <li>Año: {{pelicula.anio}}</li>
   <li>Director: {{pelicula.director}}</li>
