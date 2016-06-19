@@ -29,7 +29,7 @@ export class CursoAngular2AppComponent {
     console.log(this.pelicula);
   }
 
-  onVisibility(value){
+  onVisibility(){
     if(this.mostrarDatos === true){
       this.mostrarDatos = false;
     } else {
