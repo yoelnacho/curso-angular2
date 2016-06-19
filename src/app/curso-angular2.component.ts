@@ -9,12 +9,15 @@ import { Pelicula } from './model/pelicula';
   styleUrls: ['curso-angular2.component.css']
 })
 export class CursoAngular2AppComponent {
-  title:string = "Titulo de la página";
+  public title:string = "Titulo de la página";
+  public mostrarDatos:boolean;
 
   // guardo en pelicula el modelo Pelicula
   public pelicula:Pelicula;
 
   constructor(){
+    this.mostrarDatos = false;
+
     // creo un objeto de pelicula tomando la matriz del modelo
     this.pelicula = new Pelicula(1, "Batman vs Superman", "Zack Snider", 2016);
 
@@ -24,6 +27,14 @@ export class CursoAngular2AppComponent {
 
   debug(){
     console.log(this.pelicula);
+  }
+
+  onVisibility(value){
+    if(this.mostrarDatos === true){
+      this.mostrarDatos = false;
+    } else {
+      this.mostrarDatos = true;
+    }
   }
 
 }
