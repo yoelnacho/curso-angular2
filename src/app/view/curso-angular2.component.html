@@ -1,17 +1,10 @@
-<!--<common-nav></common-nav>-->
-<nav class="navbar navbar-default">
-    <ul class="nav navbar-nav">
-        <li class="active">
-            <a [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li>
-            <a [routerLink]="['/peliculas']">Peliculas</a>
-        </li>
-    </ul>
-</nav>
+<!--Nav-->
+<common-nav></common-nav>
 
+<!--Main-->
 <main class="container">
   <router-outlet></router-outlet>
 </main>
 
+<!--Footer-->
 <common-footer></common-footer>
