@@ -1,36 +1,63 @@
-<p>Película Favorita</p>
 
 
-<button type="button" 
-  class="btn btn-large btn-block btn-default"
-  (click)="onVisibility(true)"
-  *ngIf="mostrarDatos === false">Mostrar película favorita</button>
-<button type="button" 
-  class="btn btn-large btn-block btn-default"
-  (click)="onVisibility(false)"
-  *ngIf="mostrarDatos === true">Ocultar</button>
+<div class="row">
+  <button type="button" 
+    class="btn btn-large  btn-primary"
+    (click)="onVisibility(true)"
+    *ngIf="mostrarDatos === false">Película del Mes</button>
 
 
-<ul *ngIf="mostrarDatos === true">
-  <li>Película: {{pelicula.title}}</li>
-  <li>Año: {{pelicula.anio}}</li>
-  <li>Director: {{pelicula.director}}</li>
-</ul>
+  <div *ngIf="mostrarDatos === true"
+    class="col-md-12">
+    <h3>{{pelicula.title}}</h3>
 
-<p>
-  Cambiar titulo
-  <input type="text"
-    (keypress)="debug(true)"
-    [(ngModel)]="pelicula.title">
-</p>
+    <div class="col-md-6">
+      <img src="http://1.bp.blogspot.com/-YnXq5uzkytU/VwLKdtKiAKI/AAAAAAAAEGM/uUjzwCSERG0W43qDkErZlBtVBtwswnWeg/s1600/batman-superman-header21.jpg" 
+        alt="{{pelicula.title}}" 
+        class="img-circle"
+        width="200"
+        height="200">
+    </div>
+
+    <div class="col-md-6">
+      <ul>
+        <li>Película: {{pelicula.title}}</li>
+        <li>Año: {{pelicula.anio}}</li>
+        <li>Director: {{pelicula.director}}</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <input type="text"
+      (keypress)="debug(true)"
+      [(ngModel)]="pelicula.title"
+      class="form-control">
+
+    <button type="button" 
+    class="btn btn-large btn-default"
+    (click)="onVisibility(false)"
+    *ngIf="mostrarDatos === true">Ocultar</button>
+  </div>
+</div>
 
 <hr>
-<div *ngIf="mostrarDatos === false">
-  <p>Listado de películas:</p>
-  <ul *ngFor="let pelicula of peliculas">
-    <li>Película: {{pelicula.title}}</li>
-    <!--por si el año no está definido, oculta el campo-->
-    <li *ngIf="pelicula.anio">Año: {{pelicula.anio}}</li>
-    <li>Director: {{pelicula.director}}</li>
-  </ul>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Pelicula</th>
+      <th>A&ntilde;o</th>
+      <th>Director</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pelicula of peliculas"
+      [ngClass]="{active: pelicula === selectedPelicula}"> 
+      <th>{{pelicula.id}}</th>
+      <td (click)="onSelect(pelicula)" class="pelicula-title">{{pelicula.title}}</td>
+      <td><span *ngIf="pelicula.anio">{{pelicula.anio}}</span></td>
+      <td>{{pelicula.director}}</td>
+    </tr>
+  </tbody>
+</table>
