@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 // importar el modelo
-import { PeliculaModel } from '../model/pelicula';
+import { PeliculaModel } from '../model/pelicula.model';
+import { PeliculasService } from '../services/peliculas.service';
 
 @Component({
     selector: 'peliculas-list',
     templateUrl: 'app/view/peliculas-list.component.html',
-    styleUrls: ['app/styles/peliculas-list.component.css']
+    styleUrls: ['app/styles/peliculas-list.component.css'],
+    // providers se utiliza para consumir un servicio
+    providers: [PeliculasService]
 })
 export class PeliculasListComponent {
-    public mostrarDatos:boolean;
+  public mostrarDatos:boolean;
   
   // hay dos formas de indicar que tipo de array es:
   //public peliculas:Array<any>; // en este caso el arra puede ser de cualquier tipo
-  public peliculas:Array<PeliculaModel>; // en este caso defino que el tipo de array es el definido en el modelo Pelicula.
+  //public peliculas:Array<PeliculaModel>; // en este caso defino que el tipo de array es el definido en el modelo Pelicula.
 
   // guardo en pelicula el modelo Pelicula
   public pelicula:PeliculaModel;
@@ -20,22 +23,22 @@ export class PeliculasListComponent {
   // pelicula que selecciono desde el DOM
   public selectedPelicula;
 
-  constructor(){
-    this.mostrarDatos = false;
+  // utilizar los datos del servicio
+  public peliculas;
 
-    this.peliculas = [
-      new PeliculaModel(1, "Batman vs Superman", "Zack Snider", 2016),
-      new PeliculaModel(2, "La verdad duele", "Will Smith", 2016),
-      new PeliculaModel(3, "El señor de los anillos", "Desconocido", null),
-      new PeliculaModel(4, "Una historia real", "Spilbergo", 2015),
-      new PeliculaModel(5, "Don Jon", "Josep Gordon Levit", 2014)
-    ];
+  // para poder consumir el servicio hay que llamarlo desde el constructor
+  constructor(private _peliculasService: PeliculasService){
+    
+    // Datos del servicio obtenidos con get
+    this.peliculas = this._peliculasService.getPeliculas();
+
+    this.mostrarDatos = false;
 
     // indico el índice del array con el que quiero que muestre pelicula
     this.pelicula = this.peliculas[0]; // osea batman vs superman
 
     // lanzar una funcion
-    this.debug();
+    //this.debug();
   }
 
   // funcion debug para ver datos por consola.

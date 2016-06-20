@@ -1,11 +1,10 @@
-
-
 <div class="row">
+  <p>{{datosService}}</p>
+  
   <button type="button" 
     class="btn btn-large  btn-primary"
     (click)="onVisibility(true)"
     *ngIf="mostrarDatos === false">Película del Mes</button>
-
 
   <div *ngIf="mostrarDatos === true"
     class="col-md-12">
