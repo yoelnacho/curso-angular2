@@ -1,39 +1,13 @@
-<h1>
-  {{title}}
-</h1>
-<p>Película Favorita</p>
+<main class="container">
+  <h1>
+    {{title}}
+  </h1>
 
+  <!--el siguiente tag es el componete peliculas-list-->
+  <peliculas-list></peliculas-list>
+</main>
 
-<button type="button" 
-  class="btn btn-large btn-block btn-default"
-  (click)="onVisibility(true)"
-  *ngIf="mostrarDatos === false">Mostrar película favorita</button>
-<button type="button" 
-  class="btn btn-large btn-block btn-default"
-  (click)="onVisibility(false)"
-  *ngIf="mostrarDatos === true">Ocultar</button>
-
-
-<ul *ngIf="mostrarDatos === true">
-  <li>Película: {{pelicula.title}}</li>
-  <li>Año: {{pelicula.anio}}</li>
-  <li>Director: {{pelicula.director}}</li>
-</ul>
-
-<p>
-  Cambiar titulo
-  <input type="text"
-    (keypress)="debug(true)"
-    [(ngModel)]="pelicula.title">
-</p>
-
-<hr>
-<div *ngIf="mostrarDatos === false">
-  <p>Listado de películas:</p>
-  <ul *ngFor="let pelicula of peliculas">
-    <li>Película: {{pelicula.title}}</li>
-    <!--por si el año no está definido, oculta el campo-->
-    <li *ngIf="pelicula.anio">Año: {{pelicula.anio}}</li>
-    <li>Director: {{pelicula.director}}</li>
-  </ul>
-</div>
+<footer class="container">
+  <!--el siguiente tag es el componete peliculas-footer-->
+  <peliculas-footer></peliculas-footer>
+</footer>

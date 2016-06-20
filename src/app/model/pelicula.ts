@@ -1,4 +1,4 @@
-export class Pelicula {
+export class PeliculaModel {
     constructor(
         public id:number, 
         public title:string,

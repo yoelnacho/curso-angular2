@@ -1,0 +1,63 @@
+
+
+<div class="row">
+  <button type="button" 
+    class="btn btn-large  btn-primary"
+    (click)="onVisibility(true)"
+    *ngIf="mostrarDatos === false">Película del Mes</button>
+
+
+  <div *ngIf="mostrarDatos === true"
+    class="col-md-12">
+    <h3>{{pelicula.title}}</h3>
+
+    <div class="col-md-6">
+      <img src="http://1.bp.blogspot.com/-YnXq5uzkytU/VwLKdtKiAKI/AAAAAAAAEGM/uUjzwCSERG0W43qDkErZlBtVBtwswnWeg/s1600/batman-superman-header21.jpg" 
+        alt="{{pelicula.title}}" 
+        class="img-circle"
+        width="200"
+        height="200">
+    </div>
+
+    <div class="col-md-6">
+      <ul>
+        <li>Película: {{pelicula.title}}</li>
+        <li>Año: {{pelicula.anio}}</li>
+        <li>Director: {{pelicula.director}}</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <input type="text"
+      (keypress)="debug(true)"
+      [(ngModel)]="pelicula.title"
+      class="form-control">
+
+    <button type="button" 
+    class="btn btn-large btn-default"
+    (click)="onVisibility(false)"
+    *ngIf="mostrarDatos === true">Ocultar</button>
+  </div>
+</div>
+
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Pelicula</th>
+      <th>A&ntilde;o</th>
+      <th>Director</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pelicula of peliculas"
+      [ngClass]="{active: pelicula === selectedPelicula}"> 
+      <th>{{pelicula.id}}</th>
+      <td (click)="onSelect(pelicula)" class="pelicula-title">{{pelicula.title}}</td>
+      <td><span *ngIf="pelicula.anio">{{pelicula.anio}}</span></td>
+      <td>{{pelicula.director}}</td>
+    </tr>
+  </tbody>
+</table>
