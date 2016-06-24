@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Routes, ROUTER_DIRECTIVES} from '@angular/router';
+import { Routes, Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 // importar componente
 import { LandingPageComponent } from './components/landing-page.component';
@@ -16,6 +16,7 @@ import { NavComponent } from './components/commons/nav.component';
   // en directives indico que componente voy a utilizar
   directives: [
     ROUTER_DIRECTIVES, 
+    TodoComponent,
     LandingPageComponent, 
     PeliculasListComponent, 
     FooterComponent, 
@@ -25,10 +26,12 @@ import { NavComponent } from './components/commons/nav.component';
 
 @Routes([
     {path: "/", component: LandingPageComponent},
-    {path: "/peliculas", component: PeliculasListComponent},
-    {path: "/todo", component: TodoComponent}
+    {path: "peliculas", component: PeliculasListComponent},
+    {path: "todo", component: TodoComponent}
 ]) 
 
 export class AppComponent {
   public title:string;
+
+  constructor(){}
 }
