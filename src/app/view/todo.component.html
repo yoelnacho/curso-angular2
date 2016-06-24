@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+
+<div [ngSwitch]="status">
+    <div *ngSwitchWhen="'edit'">
+        <form (submit)="updateTodo()">
+            <label for="add">Edit</label>
+            <input type="text"
+                [(ngModel)]="text">
+        </form>
+    </div>
+
+    <div *ngSwitchDefault>
+        <form (submit)="addTodo()">
+            <label for="add">Add</label>
+            <input type="text"
+                [(ngModel)]="text">
+        </form>
+    </div>
+</div>
+
+
+<br>
+<section [ngSwitch]="total">
+    <article *ngSwitchWhen="0">
+        <h4>Nothing to do!</h4>
+    </article>
+    
+    <article *ngSwitchDefault>
+        <h4>Pending task<span *ngIf="total >= 2">s</span>: {{total}}</h4>
+    
+        <ul>
+            <li *ngFor="let todo of todos">
+                <button type="button"
+                    (click)="deleteTodo(todo.text)">D</button> -
+                <button type="button"
+                    (click)="editTodo(todo)">E</button> -
+                    {{todo.text}}
+            </li>
+        </ul>
+    </article>
+</section>
