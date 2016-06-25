@@ -1,33 +1,29 @@
 import { Component } from '@angular/core';
-import { Routes, ROUTER_DIRECTIVES} from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 // importar componente
-import { LandingPageComponent } from './components/landing-page.component';
-import { TodoComponent } from './components/todo.component';
-import { PeliculasListComponent } from './components/peliculas-list.component';
 import { FooterComponent } from './components/commons/footer.component';
 import { NavComponent } from './components/commons/nav.component';
 
 @Component({
   moduleId: module.id,
-  selector: 'my-app',
-  templateUrl: 'view/app.component.html',
+  selector: 'app-root',
+  // templateUrl: 'view/app.component.html',
+  template: `
+    <common-nav></common-nav>
+    <main class="container">
+      <router-outlet></router-outlet>
+    </main>
+    <common-footer></common-footer>
+  `,
   styleUrls: ['styles/general.css'],
   // en directives indico que componente voy a utilizar
   directives: [
-    ROUTER_DIRECTIVES, 
-    LandingPageComponent, 
-    PeliculasListComponent, 
+    ROUTER_DIRECTIVES,
     FooterComponent, 
     NavComponent
   ]
 })
-
-@Routes([
-    {path: "/", component: LandingPageComponent},
-    {path: "/peliculas", component: PeliculasListComponent},
-    {path: "/todo", component: TodoComponent}
-]) 
 
 export class AppComponent {
   public title:string;

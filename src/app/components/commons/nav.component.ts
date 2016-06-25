@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Routes, ROUTER_DIRECTIVES} from '@angular/router';
+import { ROUTER_DIRECTIVES} from '@angular/router';
  
 @Component({
   moduleId: module.id,
