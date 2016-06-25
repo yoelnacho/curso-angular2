@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Routes, Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 // importar componente
@@ -30,8 +30,8 @@ import { NavComponent } from './components/commons/nav.component';
     {path: "todo", component: TodoComponent}
 ]) 
 
-export class AppComponent {
+export class AppComponent{
   public title:string;
 
-  constructor(){}
+  constructor(public router: Router){ }
 }
