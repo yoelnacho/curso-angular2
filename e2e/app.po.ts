@@ -4,6 +4,6 @@ export class CursoAngular2Page {
   }
 
   getParagraphText() {
-    return element(by.css('curso-angular2-app h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }
