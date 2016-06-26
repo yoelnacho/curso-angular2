@@ -4,7 +4,7 @@ import { TodoComponent } from './components/todo.component';
 import { PeliculasListComponent } from './components/peliculas-list.component';
 
 export const routes: RouterConfig = [
-  {path: "home", component: LandingPageComponent},
+  {path: "", component: LandingPageComponent},
   {path: "peliculas", component: PeliculasListComponent},
   {path: "todo", component: TodoComponent}
 ];
