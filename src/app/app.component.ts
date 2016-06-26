@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 // importar componente
 import { FooterComponent } from './components/commons/footer.component';
@@ -27,4 +28,7 @@ import { NavComponent } from './components/commons/nav.component';
 
 export class AppComponent {
   public title:string;
+
+  constructor(private route: ActivatedRoute) {}
+  
 }
