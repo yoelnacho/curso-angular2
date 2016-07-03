@@ -28,11 +28,13 @@
     <article *ngSwitchDefault>
         <h4>Pending task<span *ngIf="total >= 2">s</span>: {{total}}</h4>
     
-        <ul>
-            <li *ngFor="let todo of todos">
-                <button type="button"
+        <ul class="list-group">
+            <li *ngFor="let todo of todos" 
+                class="list-group-item"
+                [ngClass]="{'list-group-item-info': todo.text === oldText}">
+                <button type="button" class="btn btn-danger btn-xs"
                     (click)="deleteTodo(todo.text)">D</button> -
-                <button type="button"
+                <button type="button" class="btn btn-info btn-xs"
                     (click)="editTodo(todo)">E</button> -
                     {{todo.text}}
             </li>
